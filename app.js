@@ -22,7 +22,7 @@ let summonerId; // summonerIdをグローバルスコープで定義
 
 // CORSを許可する
 app.use(cors({
-    origin: 'https://tracklol.web.app/',
+    origin: 'https://tracklol.web.app',
     credentials: true,
     optionsSuccessStatus: 200
   }));
