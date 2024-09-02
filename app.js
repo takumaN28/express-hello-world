@@ -22,8 +22,8 @@ let summonerId; // summonerIdをグローバルスコープで定義
 
 // CORSを許可する
 app.use(cors({
-  origin: 'https://tracklol.web.app'
-}));
+    origin: 'https://tracklol.web.app/'
+  }));
 
 //postで情報を受け入れる
 app.use(bodyParser.urlencoded({
@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://tracklol.web.app/");
+    res.setHeader("Access-Control-Allow-Origin", "https://tracklol.web.app");
     res.setHeader(
         "Access-Control-Allow-Methods",
         "GET, POST, PUT, PATCH, DELETE, OPTION"
