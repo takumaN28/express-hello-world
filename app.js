@@ -33,14 +33,16 @@ app.use(bodyParser.json());
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "https://tracklol.web.app");
-    res.setHeader(
-        "Access-Control-Allow-Methods",
-        "GET, POST, PUT, PATCH, DELETE, OPTION"
-    );
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS"); // "OPTIONS" のスペル修正
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+    // プリフライトリクエストに対する早期レスポンス
+    if (req.method === "OPTIONS") {
+        return res.status(200).end(); // CORSヘッダーを含めた200 OKレスポンスを返す
+    }
+
     next();
 });
-
 
 // サーバーを起動
 const server = app.listen(PORT, () => {
