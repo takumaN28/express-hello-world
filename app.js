@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3002");
+    res.setHeader("Access-Control-Allow-Origin", "https://tracklol.web.app/");
     res.setHeader(
         "Access-Control-Allow-Methods",
         "GET, POST, PUT, PATCH, DELETE, OPTION"
