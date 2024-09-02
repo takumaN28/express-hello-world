@@ -21,9 +21,11 @@ let summonerId; // summonerIdをグローバルスコープで定義
 
 
 // CORSを許可する
-// app.use(cors({
-//     origin: 'https://tracklol.web.app/'
-//   }));
+app.use(cors({
+    origin: 'https://tracklol.web.app/',
+    credentials: true,
+    optionsSuccessStatus: 200
+  }));
 
 //postで情報を受け入れる
 app.use(bodyParser.urlencoded({
@@ -31,17 +33,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://tracklol.web.app/"); // スラッシュを削除
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+// app.use((req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "https://tracklol.web.app/"); // スラッシュを削除
+//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+//     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-    if (req.method === "OPTIONS") {
-        return res.status(200).end(); // プリフライトリクエストに対する200 OKレスポンス
-    }
+//     if (req.method === "OPTIONS") {
+//         return res.status(200).end(); // プリフライトリクエストに対する200 OKレスポンス
+//     }
 
-    next();
-});
+//     next();
+// });
 
 // サーバーを起動
 const server = app.listen(PORT, () => {
