@@ -7,10 +7,10 @@ const app = express();
 const PORT = 3000;
 
 
-const API_KEY = "RGAPI-720883c8-739f-41a0-ba53-b952d23973fd";
+const API_KEY = "RGAPI-0c0a84b8-8fe3-442e-9b4e-3ca4b857d16d";
 const platform = "jp1";
 const region = "asia";
-// const summonerName = "優しいゴーヤs";
+// const summonerName = "はちみつゴーヤf";
 const summonerName = "ceros";
 // const tagline = "6106";
 const tagline = "111";
@@ -99,6 +99,11 @@ app.post('/account', async (req, res) => {
 
         // puuidをグローバル変数にセット
         puuid = response.data.puuid;
+
+        const summonerResponse = await axios.get(`https://${platform}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`);
+        // summonerIdをグローバル変数にセット
+        summonerId = summonerResponse.data.id;
+
 
         // レスポンスをクライアントに返す
         res.json(response.data);
