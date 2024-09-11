@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 
-const API_KEY = "RGAPI-0c0a84b8-8fe3-442e-9b4e-3ca4b857d16d";
+const API_KEY = "RGAPI-736d75ae-7e1e-49fc-82cb-b6ec71e5c0ad";
 const platform = "jp1";
 const region = "asia";
 // const summonerName = "はちみつゴーヤf";
